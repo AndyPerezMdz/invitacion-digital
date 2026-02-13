@@ -17,6 +17,7 @@ function pad(n) {
 }
 
 function updateCountdown() {
+  if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
   const now = new Date();
   const diff = WEDDING_DATE - now;
 
@@ -39,9 +40,11 @@ function updateCountdown() {
   secondsEl.textContent = pad(seconds);
 }
 
-// Actualizar cada segundo
-updateCountdown();
-setInterval(updateCountdown, 1000);
+// Actualizar cada segundo (solo en index.html)
+if (daysEl) {
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+}
 
 // Música de fondo: se reproduce durante toda la visita (loop)
 const bgMusic = document.getElementById('bg-music');
@@ -76,4 +79,37 @@ if (confirmBtn) {
     alert('¡Gracias! Pronto recibirás un enlace para confirmar tu asistencia.');
     // Aquí podrías abrir un modal con formulario o redirigir a otra página
   });
+}
+
+// Carrusel de la galería (us.html)
+const carousel = document.querySelector('.carousel');
+if (carousel) {
+  const track = carousel.querySelector('.carousel__track');
+  const slides = carousel.querySelectorAll('.carousel__slide');
+  const prevBtn = carousel.querySelector('.carousel__btn--prev');
+  const nextBtn = carousel.querySelector('.carousel__btn--next');
+  const dotsContainer = carousel.querySelector('.carousel__dots');
+  const total = slides.length;
+  let index = 0;
+
+  function goTo(i) {
+    index = (i + total) % total;
+    slides.forEach((s, k) => s.classList.toggle('carousel__slide--active', k === index));
+    dotsContainer.querySelectorAll('.carousel__dot').forEach((d, k) => d.classList.toggle('carousel__dot--active', k === index));
+  }
+
+  if (dotsContainer && total > 1) {
+    for (let i = 0; i < total; i++) {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'carousel__dot' + (i === 0 ? ' carousel__dot--active' : '');
+      dot.setAttribute('aria-label', 'Ir a foto ' + (i + 1));
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', () => goTo(index - 1));
+  if (nextBtn) nextBtn.addEventListener('click', () => goTo(index + 1));
+  goTo(0);
 }
