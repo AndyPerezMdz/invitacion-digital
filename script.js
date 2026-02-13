@@ -72,12 +72,38 @@ if (bgMusic) {
   }
 }
 
-// Confirmar asistencia - puedes conectar con un formulario o backend
-const confirmBtn = document.querySelector('.btn-confirm');
-if (confirmBtn) {
-  confirmBtn.addEventListener('click', () => {
-    alert('¡Gracias! Pronto recibirás un enlace para confirmar tu asistencia.');
-    // Aquí podrías abrir un modal con formulario o redirigir a otra página
+// Confirmación de asistencia (RSVP) – envío a Formspree
+const rsvpForm = document.getElementById('rsvp-form');
+const rsvpSuccess = document.getElementById('rsvp-success');
+if (rsvpForm) {
+  rsvpForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = rsvpForm.querySelector('.btn-confirm');
+    if (!btn || !rsvpSuccess) return;
+    btn.disabled = true;
+    btn.textContent = 'Enviando…';
+    rsvpSuccess.textContent = '';
+    try {
+      const formData = new FormData(rsvpForm);
+      const res = await fetch(rsvpForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' }
+      });
+      if (res.ok) {
+        rsvpSuccess.textContent = '¡Gracias! Tu confirmación se ha enviado correctamente.';
+        rsvpSuccess.style.color = 'rgba(255,255,255,0.95)';
+        rsvpForm.reset();
+      } else {
+        rsvpSuccess.textContent = 'Hubo un error. Por favor, inténtalo de nuevo o escríbenos por otro medio.';
+        rsvpSuccess.style.color = 'rgba(255,200,200,0.95)';
+      }
+    } catch {
+      rsvpSuccess.textContent = 'No se pudo enviar. Revisa tu conexión e inténtalo de nuevo.';
+      rsvpSuccess.style.color = 'rgba(255,200,200,0.95)';
+    }
+    btn.disabled = false;
+    btn.textContent = 'Confirmar asistencia';
   });
 }
 

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sugerencias de regalo | Invitación de Boda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="lace-pattern" aria-hidden="true"></div>
+
+  <!-- Lluvia de sobres (icon-mail) -->
+  <div class="regalos__rain" aria-hidden="true">
+    <span class="regalos__envelope"><img src="src/icon-mail.svg" class="icon-mail" alt=""></span>
+    <span class="regalos__envelope"><img src="src/icon-mail.svg" class="icon-mail" alt=""></span>
+    <span class="regalos__envelope"><img src="src/icon-mail.svg" class="icon-mail" alt=""></span>
+    <span class="regalos__envelope"><img src="src/icon-mail.svg" class="icon-mail" alt=""></span>
+    <span class="regalos__envelope"><img src="src/icon-mail.svg" class="icon-mail" alt=""></span>
+    <span class="regalos__envelope"><img src="src/icon-mail.svg" class="icon-mail" alt=""></span>
+    <span class="regalos__envelope"><img src="src/icon-mail.svg" class="icon-mail" alt=""></span>
+    <span class="regalos__envelope"><img src="src/icon-mail.svg" class="icon-mail" alt=""></span>
+    <span class="regalos__envelope"><img src="src/icon-mail.svg" class="icon-mail" alt=""></span>
+    <span class="regalos__envelope"><img src="src/icon-mail.svg" class="icon-mail" alt=""></span>
+    <span class="regalos__envelope"><img src="src/icon-mail.svg" class="icon-mail" alt=""></span>
+    <span class="regalos__envelope"><img src="src/icon-mail.svg" class="icon-mail" alt=""></span>
+    <span class="regalos__envelope"><img src="src/icon-mail.svg" class="icon-mail" alt=""></span>
+    <span class="regalos__envelope"><img src="src/icon-mail.svg" class="icon-mail" alt=""></span>
+    <span class="regalos__envelope"><img src="src/icon-mail.svg" class="icon-mail" alt=""></span>
+  </div>
+
+  <section class="regalos section">
+    <div class="container">
+      <header class="regalos__header">
+        <div class="regalos__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 12v10H4V12M2 7h20v5H2V7zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+        </div>
+        <h1 class="regalos__title">Sugerencias de regalo</h1>
+      </header>
+
+      <div class="regalos__card">
+        <p class="regalos__intro">Nuestro mejor regalo es disfrutar este día contigo; pero si quieres tener un detalle con nosotros, puedes hacerlo en un sobre o con los datos a continuación.</p>
+      </div>
+
+      <div class="regalos__spei">
+        <p class="regalos__spei-label">Mi número de tarjeta para enviarme dinero desde otro banco (SPEI):</p>
+        <div class="regalos__number-wrap">
+          <code class="regalos__number" id="spei-number">4027 6600 0732 1906</code>
+          <button type="button" class="regalos__copy" id="copy-spei" aria-label="Copiar número de tarjeta">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span class="regalos__copy-text">Copiar</span>
+          </button>
+        </div>
+        <p class="regalos__bank">Banco Azteca</p>
+      </div>
+
+      <p class="regalos__note">Puedes transferir desde la app de tu banco usando SPEI con el número de tarjeta de arriba.</p>
+
+      <a href="index.html" class="story__btn regalos__back">Volver a la invitación</a>
+    </div>
+  </section>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('copy-spei');
+      var code = document.getElementById('spei-number');
+      var textEl = btn ? btn.querySelector('.regalos__copy-text') : null;
+      var fullNumber = '4027660007321906';
+
+      if (btn && textEl) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(fullNumber).then(function() {
+            textEl.textContent = '¡Copiado!';
+            setTimeout(function() { textEl.textContent = 'Copiar'; }, 2000);
+          }).catch(function() {
+            textEl.textContent = 'No se pudo copiar';
+            setTimeout(function() { textEl.textContent = 'Copiar'; }, 2000);
+          });
+        });
+      }
+    })();
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -719,6 +719,154 @@ body {
   color: rgba(255, 255, 255, 0.95);
 }
 
+/* ========== ENCABEZADO DRESS CODE (dresscode.html) ========== */
+.dresscode-header {
+  position: relative;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1.5rem 3rem;
+  overflow: hidden;
+}
+
+.dresscode-header__bg {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-bg-dark);
+  background-image: url('src/bg-dresscode.jpeg');
+  background-size: cover;
+  background-position: center;
+}
+
+.dresscode-header__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+.dresscode-header__box {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: var(--border-radius);
+  padding: 1.5rem 2.5rem;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.dresscode-header__title {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: var(--color-text-on-light);
+  margin: 0;
+}
+
+.dresscode-header__line {
+  position: relative;
+  z-index: 1;
+  margin-top: 1.75rem;
+  text-align: center;
+}
+
+.dresscode-header__line::before {
+  content: '';
+  display: block;
+  width: 120px;
+  height: 4px;
+  margin: 0 auto 0.75rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 2px;
+}
+
+.dresscode-header__line-text {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* ========== SECCIONES DRESS CODE (dresscode.html) ========== */
+.dresscode-section__title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--color-text-on-light);
+  text-align: center;
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.dresscode-section__subtitle {
+  font-size: 0.9rem;
+  color: var(--color-text-soft-on-light);
+  text-align: center;
+  margin: 0 0 2rem;
+}
+
+.dresscode-palette {
+  background: var(--color-bg);
+}
+
+.dresscode-palette__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.dresscode-palette__item {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dresscode-palette__item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.dresscode-gallery {
+  background: var(--color-card);
+}
+
+.dresscode-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.dresscode-gallery__item {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dresscode-gallery__item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (min-width: 560px) {
+  .dresscode-palette__grid,
+  .dresscode-gallery__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
 /* ========== ESTILO INSTANTÁNEA (marco blanco tipo Polaroid) ========== */
 .instantanea {
   background: #fff;
@@ -1279,17 +1427,85 @@ body {
   font-size: 0.9rem;
   text-align: center;
   line-height: 1.7;
-  margin-bottom: 2rem;
+  margin-bottom: 1.75rem;
   max-width: 360px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.rsvp-form {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.rsvp-form__input,
+.rsvp-form__select {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  margin-bottom: 0.75rem;
+  border: 1px solid rgba(61, 54, 45, 0.2);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--color-text-on-light);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.rsvp-form__input::placeholder {
+  color: var(--color-text-soft-on-light);
+}
+
+.rsvp-form__input:focus,
+.rsvp-form__select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px rgba(139, 125, 107, 0.2);
+}
+
+.rsvp-form__select {
+  cursor: pointer;
+  appearance: none;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%235c5348' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.25rem;
+}
+
+.rsvp-form__select option {
+  background: #fff;
+  color: var(--color-text-on-light);
+}
+
+.rsvp-form__row {
+  margin-bottom: 0.75rem;
+}
+
+.rsvp-form__label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-text-on-light);
+  margin-bottom: 0.35rem;
+}
+
+.rsvp-form__textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.rsvp-form__success {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  min-height: 1.5em;
 }
 
 .btn-confirm {
   display: block;
   width: 100%;
   max-width: 280px;
-  margin: 0 auto;
+  margin: 1rem auto 0;
   padding: 1rem 2rem;
   background: var(--color-accent);
   color: var(--color-text);
@@ -1306,6 +1522,229 @@ body {
 .btn-confirm:hover {
   background: var(--color-bg-dark);
   transform: translateY(-2px);
+}
+
+.btn-confirm:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ========== PÁGINA SUGERENCIAS DE REGALO (regalos.html) ========== */
+/* Lluvia de sobres (icon-mail) – por encima del contenido para que se vea */
+.regalos__rain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.regalos__envelope {
+  position: absolute;
+  top: -50px;
+  display: block;
+  opacity: 0.4;
+  animation: regalos-fall linear infinite;
+  will-change: transform;
+}
+
+.regalos__envelope .icon-mail {
+  width: 32px;
+  height: 32px;
+  display: block;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+  object-fit: contain;
+}
+
+.regalos__envelope:nth-child(1)  { left: 5%;  animation-duration: 12s; animation-delay: 0s; }
+.regalos__envelope:nth-child(2)  { left: 15%; animation-duration: 14s; animation-delay: 1s; }
+.regalos__envelope:nth-child(3)  { left: 25%; animation-duration: 11s; animation-delay: 3s; }
+.regalos__envelope:nth-child(4)  { left: 35%; animation-duration: 16s; animation-delay: 0.5s; }
+.regalos__envelope:nth-child(5)  { left: 45%; animation-duration: 13s; animation-delay: 2s; }
+.regalos__envelope:nth-child(6)  { left: 55%; animation-duration: 15s; animation-delay: 4s; }
+.regalos__envelope:nth-child(7)  { left: 65%; animation-duration: 10s; animation-delay: 1.5s; }
+.regalos__envelope:nth-child(8)  { left: 75%; animation-duration: 14s; animation-delay: 2.5s; }
+.regalos__envelope:nth-child(9)  { left: 85%; animation-duration: 12s; animation-delay: 0.2s; }
+.regalos__envelope:nth-child(10) { left: 92%; animation-duration: 11s; animation-delay: 3.5s; }
+.regalos__envelope:nth-child(11) { left: 8%;  animation-duration: 15s; animation-delay: 5s; }
+.regalos__envelope:nth-child(12) { left: 22%; animation-duration: 13s; animation-delay: 4.5s; }
+.regalos__envelope:nth-child(13) { left: 50%; animation-duration: 14s; animation-delay: 6s; }
+.regalos__envelope:nth-child(14) { left: 68%; animation-duration: 11s; animation-delay: 2.2s; }
+.regalos__envelope:nth-child(15) { left: 78%; animation-duration: 12s; animation-delay: 5.5s; }
+
+@keyframes regalos-fall {
+  0% {
+    transform: translateY(-80px) rotate(var(--r, 0deg));
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.5;
+  }
+  95% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(100vh) rotate(var(--r, 0deg));
+    opacity: 0;
+  }
+}
+
+.regalos__envelope:nth-child(1)  { --r: -8deg; }
+.regalos__envelope:nth-child(2)  { --r: 5deg; }
+.regalos__envelope:nth-child(3)  { --r: -12deg; }
+.regalos__envelope:nth-child(4)  { --r: 3deg; }
+.regalos__envelope:nth-child(5)  { --r: -5deg; }
+.regalos__envelope:nth-child(6)  { --r: 10deg; }
+.regalos__envelope:nth-child(7)  { --r: -3deg; }
+.regalos__envelope:nth-child(8)  { --r: 7deg; }
+.regalos__envelope:nth-child(9)  { --r: -10deg; }
+.regalos__envelope:nth-child(10) { --r: 4deg; }
+.regalos__envelope:nth-child(11) { --r: 6deg; }
+.regalos__envelope:nth-child(12) { --r: -7deg; }
+.regalos__envelope:nth-child(13) { --r: -4deg; }
+.regalos__envelope:nth-child(14) { --r: 8deg; }
+.regalos__envelope:nth-child(15) { --r: -6deg; }
+
+.regalos {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-card) 100%);
+  min-height: 100vh;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.regalos__header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.regalos__icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 1rem;
+  color: var(--color-accent);
+}
+
+.regalos__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.regalos__title {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: var(--color-text-on-light);
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+.regalos__card {
+  max-width: 480px;
+  margin: 0 auto 2rem;
+  padding: 1.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(139, 125, 107, 0.25);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.regalos__intro {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--color-text-on-light);
+  margin: 0;
+  text-align: center;
+}
+
+.regalos__spei {
+  max-width: 400px;
+  margin: 0 auto 1.5rem;
+  padding: 1.5rem 1.25rem;
+  background: #fff;
+  border: 1px solid rgba(139, 125, 107, 0.3);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.regalos__spei-label {
+  font-size: 0.85rem;
+  color: var(--color-text-soft-on-light);
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+
+.regalos__number-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.regalos__number {
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--color-text-on-light);
+  background: rgba(139, 125, 107, 0.1);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.regalos__copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1rem;
+  background: var(--color-accent);
+  color: var(--color-text);
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.regalos__copy:hover {
+  background: var(--color-bg-dark);
+  transform: scale(1.02);
+}
+
+.regalos__copy svg {
+  flex-shrink: 0;
+}
+
+.regalos__bank {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-on-light);
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.regalos__note {
+  font-size: 0.8rem;
+  color: var(--color-text-soft-on-light);
+  text-align: center;
+  max-width: 360px;
+  margin: 0 auto 2rem;
+  line-height: 1.5;
+}
+
+.regalos__back {
+  display: inline-flex;
+  margin: 0 auto;
+}
+
+.regalos .container {
+  text-align: center;
 }
 
 /* ========== EXTRAS (Regalo + Vestimenta) ========== */
