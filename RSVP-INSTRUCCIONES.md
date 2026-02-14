@@ -36,3 +36,5 @@ El formulario de la web envía las respuestas a **Formspree**. No necesitas serv
 
 - **Google Forms:** crear un formulario en Google, enlazarlo desde la web y ver las respuestas en una Hoja de cálculo.
 - **Backend propio:** si en el futuro tienes un servidor (Node, PHP, etc.) y base de datos, se puede hacer un panel de administración a medida.
+
+ Hace aproximadamente 18 años Dios permitió que nuestros caminos se cruzaran por primera vez, sin imaginar que aquel encuentro tendría un significado tan grande en nuestras vidas. Después de tantos años nos volvimos a reencontrar el 14 de abril del 2025, ya no siendo las mismas personas, si no dos seres más maduros y con historias vividas, lo que hemos construido desde entonces, nuestra forma de mirarnos, de apoyarnos y de cuidarnos simplemente reafirma que estamos exactamente donde debemos estar.
